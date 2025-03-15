@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <h2 id="typing-text"></h2>
+    <style>
+        /* Typing Effect */
+        #typing-text {
+            height: 35px;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+            animation: typing 4s steps(20, end) infinite, blink 0.7s infinite;
+        }
+
+        
+
+        /* Dynamic Color Change */
+        @keyframes colorChange {
+            0% { color: red; }
+            25% { color: cyan; }
+            50% { color: yellow; }
+            75% { color: lime; }
+            100% { color: red; }
+        }
+
+        /* Apply Color Change */
+        #typing-text {
+            animation: typing 4s steps(20, end) infinite, colorChange 5s infinite;
+        }
+
+    </style>
+    <script>
+        const text = "Login System"; // Text to Type
+        let index = 0;
+
+        function typeEffect() {
+            document.getElementById("typing-text").innerText = text.substring(0, index);
+            index++;
+
+            if (index > text.length) {
+                index = 0; // Restart typing effect
+            }
+
+            setTimeout(typeEffect, 200); // Speed of typing
+        }
+
+        typeEffect(); // Start Typing Effect
+
+    </script>
+
+
+    <h3 id="form-title">Login</h3>
+<div class="form-container">
+    <div id="login-form">
+        <input type="text" id="login_username" placeholder="Username">
+        <input type="password" id="login_password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p>Don't have an account? <button onclick="showRegister()">Sign Up</button></p>
+    </div>
+    
+    <div id="register-form">
+        <input type="text" id="reg_username" placeholder="Username">
+        <input type="password" id="reg_password" placeholder="Password">
+        <button onclick="register()">Register</button>
+        <p>Already have an account? <button onclick="showLogin()">Login</button></p>
+    </div>
+
+
+</div>
+
+<script>
+    function showRegister() {
+        document.getElementById("login-form").style.display = "none";
+        document.getElementById("register-form").style.display = "flex";
+        document.getElementById("form-title").innerText = "Register";
+    }
+
+    function showLogin() {
+        document.getElementById("register-form").style.display = "none";
+        document.getElementById("login-form").style.display = "flex";
+        document.getElementById("form-title").innerText = "Login";
+    }
+
+    
+</script>
+
+<!-- Message Popup -->
+<div class="overlay" id="overlay"></div>
+
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <p id="popup-message"></p>
+    </div>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

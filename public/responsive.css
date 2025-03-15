@@ -1,0 +1,55 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+    #login-form, #register-form {
+        width: 90%; /* Make the form take most of the screen width */
+        height: auto; /* Adjust height automatically */
+        padding: 20px;
+    }
+
+    input {
+        width: 90%; /* Input fields take more space */
+    }
+
+    button {
+        width: 100px;
+    }
+
+    /* Adjust Popup for smaller screens */
+    .popup {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+/* For very small screens (phones < 480px) */
+@media (max-width: 480px) {
+    #login-form, #register-form {
+        width: 95%; /* Take full width */
+        height: auto;
+        padding: 15px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    button {
+        width: 50%;
+    }
+
+    .popup {
+        width: 95%;
+        max-width: 280px;
+    }
+}
+
+/* For larger screens (desktops) */
+@media (min-width: 1024px) {
+    #login-form, #register-form {
+        width: 500px; /* Keep fixed size for bigger screens */
+    }
+
+    .popup {
+        max-width: 400px;
+    }
+}
